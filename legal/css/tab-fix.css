@@ -1,0 +1,17 @@
+/* Additional Tab Fix - Load this after other CSS files */
+
+/* Force hide all tabs by default */
+.main-content .tab-content {
+    display: none !important;
+}
+
+/* Show only the active tab */
+.main-content .tab-content.active {
+    display: block !important;
+}
+
+/* Ensure proper tab container behavior */
+.tab-container {
+    width: 100%;
+    max-width: none;
+}

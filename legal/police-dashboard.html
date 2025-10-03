@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Dashboard | AI Legal Assistance</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/police.css">
+    <link rel="stylesheet" href="css/tab-fix.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="material-icons">security</i>
+                <span>Police Dashboard</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="material-icons">home</i> Home</a></li>
+                    <li><a href="#" id="logoutBtn"><i class="material-icons">logout</i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dashboard">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <i class="material-icons">account_circle</i>
+                    <span>Police Officer</span>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Navigation</h3>
+                    <button class="sidebar-btn active" data-tab="draft-fir">
+                        <i class="material-icons">note_add</i> Draft FIR
+                    </button>
+                    <button class="sidebar-btn" data-tab="case-management">
+                        <i class="material-icons">pending_actions</i> Case Management
+                        <span class="badge" id="pendingBadge">0</span>
+                    </button>
+                    <button class="sidebar-btn" data-tab="crime-analytics">
+                        <i class="material-icons">analytics</i> Crime Analytics
+                    </button>
+                    <button class="sidebar-btn" data-tab="criminal-matching">
+                        <i class="material-icons">fingerprint</i> Criminal Matching
+                    </button>
+                    <button class="sidebar-btn" data-tab="legal-resources">
+                        <i class="material-icons">gavel</i> Legal Resources
+                    </button>
+                </div>
+
+                <div class="sidebar-footer">
+                    <div class="system-status">
+                        <span>Status: </span>
+                        <span id="systemStatus" class="status-online">Online</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Tab 1: Draft FIR (Existing - Keep as is) -->
+                <div class="tab-content active" id="draft-fir">
+                    <!-- Your existing FIR drafting interface remains exactly the same -->
+                    <div class="fir-container">
+                        <!-- EXISTING FIR DRAFTING CODE - KEEP EVERYTHING EXACTLY AS IS -->
+                        <div class="fir-title">
+                            <i class="material-icons">gavel</i>
+                            <span>FIR Drafting Assistant</span>
+                        </div>
+                        
+                        <div class="stepper">
+                            <div class="step active" id="step1">
+                                <div class="step-number">1</div>
+                                <div class="step-label">Incident Details</div>
+                            </div>
+                            <div class="step" id="step2">
+                                <div class="step-number">2</div>
+                                <div class="step-label">Victim Information</div>
+                            </div>
+                            <div class="step" id="step3">
+                                <div class="step-number">3</div>
+                                <div class="step-label">Legal Sections</div>
+                            </div>
+                            <div class="step" id="step4">
+                                <div class="step-number">4</div>
+                                <div class="step-label">Review & Submit</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 1: Incident Details -->
+                        <div class="form-step active" id="formStep1">
+                            <h3>Incident Details</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="incidentType">Incident Type *</label>
+                                        <select id="incidentType" required>
+                                            <option value="">Select incident type</option>
+                                            <option value="theft">Theft</option>
+                                            <option value="assault">Assault</option>
+                                            <option value="fraud">Fraud</option>
+                                            <option value="cybercrime">Cybercrime</option>
+                                            <option value="murder">Murder</option>
+                                            <option value="kidnapping">Kidnapping</option>
+                                            <option value="rape">Rape</option>
+                                            <option value="robbery">Robbery</option>
+                                            <option value="bribery">Bribery</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="location">Location *</label>
+                                        <input type="text" id="location" required placeholder="Enter incident location">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="incidentDate">Date *</label>
+                                        <input type="date" id="incidentDate" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="incidentTime">Time *</label>
+                                        <input type="time" id="incidentTime" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="incidentDescription">Incident Description *</label>
+                                <textarea id="incidentDescription" rows="4" required placeholder="Provide detailed description of the incident..."></textarea>
+                                <small>AI will analyze this description to suggest relevant IPC sections</small>
+                            </div>
+                            
+                            <div class="step-actions">
+                                <button class="step-btn outline" disabled>Back</button>
+                                <button class="step-btn" id="nextStep1">Next</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Victim Information -->
+                        <div class="form-step" id="formStep2">
+                            <h3>Victim Information</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="victimName">Victim Name *</label>
+                                        <input type="text" id="victimName" required placeholder="Full name of victim">
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="victimContact">Contact Number *</label>
+                                        <input type="tel" id="victimContact" required placeholder="Phone number">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="victimAge">Age</label>
+                                        <input type="number" id="victimAge" placeholder="Age of victim">
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="victimGender">Gender</label>
+                                        <select id="victimGender">
+                                            <option value="">Select gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="victimAddress">Address *</label>
+                                <textarea id="victimAddress" rows="3" required placeholder="Complete residential address"></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="accusedName">Accused Name (if known)</label>
+                                        <input type="text" id="accusedName" placeholder="Name of accused person">
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="accusedDescription">Accused Description</label>
+                                        <input type="text" id="accusedDescription" placeholder="Physical description, vehicle details, etc.">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-actions">
+                                <button class="step-btn outline" id="prevStep2">Back</button>
+                                <button class="step-btn" id="nextStep2">Next</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Legal Sections -->
+                        <div class="form-step" id="formStep3">
+                            <h3>AI-Suggested Legal Sections</h3>
+                            <p>Based on the incident description, our AI system recommends the following applicable legal sections:</p>
+                            
+                            <div class="selected-sections-container" id="selectedSectionsContainer">
+                                <h4>Selected Sections:</h4>
+                                <div id="selectedSections">
+                                    <p class="no-sections">No sections selected yet. Click "Select" on suggested sections below.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sections-container" id="sectionsContainer">
+                                <div class="loading-sections">
+                                    <i class="material-icons">search</i>
+                                    <p>AI is analyzing your incident description...</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="investigatingOfficer">Investigating Officer *</label>
+                                <input type="text" id="investigatingOfficer" required placeholder="Name of investigating officer">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="additionalComments">Additional Comments</label>
+                                <textarea id="additionalComments" rows="3" placeholder="Any additional information or observations..."></textarea>
+                            </div>
+                            
+                            <div class="step-actions">
+                                <button class="step-btn outline" id="prevStep3">Back</button>
+                                <button class="step-btn" id="nextStep3">Review FIR</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4: Review & Submit -->
+                        <div class="form-step" id="formStep4">
+                            <h3>Review FIR Details</h3>
+                            <p class="review-subtitle">Please review all information before submitting the FIR</p>
+                            
+                            <div class="review-section">
+                                <h4><i class="material-icons">event</i> Incident Details</h4>
+                                <div class="review-grid">
+                                    <div class="review-item">
+                                        <strong>Type:</strong> <span id="reviewIncidentType">Not provided</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <strong>Date:</strong> <span id="reviewIncidentDate">Not provided</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <strong>Time:</strong> <span id="reviewIncidentTime">Not provided</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <strong>Location:</strong> <span id="reviewLocation">Not provided</span>
+                                    </div>
+                                    <div class="review-item full-width">
+                                        <strong>Description:</strong> 
+                                        <div id="reviewIncidentDescription" class="review-text">Not provided</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-section">
+                                <h4><i class="material-icons">person</i> Victim Information</h4>
+                                <div class="review-grid">
+                                    <div class="review-item">
+                                        <strong>Name:</strong> <span id="reviewVictimName">Not provided</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <strong>Contact:</strong> <span id="reviewVictimContact">Not provided</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <strong>Age:</strong> <span id="reviewVictimAge">Not provided</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <strong>Gender:</strong> <span id="reviewVictimGender">Not provided</span>
+                                    </div>
+                                    <div class="review-item full-width">
+                                        <strong>Address:</strong> 
+                                        <div id="reviewVictimAddress" class="review-text">Not provided</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review-section" id="accusedReviewSection" style="display: none;">
+                                <h4><i class="material-icons">warning</i> Accused Information</h4>
+                                <div class="review-grid">
+                                    <div class="review-item">
+                                        <strong>Name:</strong> <span id="reviewAccusedName">Not provided</span>
+                                    </div>
+                                    <div class="review-item full-width">
+                                        <strong>Description:</strong> 
+                                        <div id="reviewAccusedDescription" class="review-text">Not provided</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-section">
+                                <h4><i class="material-icons">gavel</i> Legal Sections</h4>
+                                <div id="reviewSections" class="sections-review">
+                                    <p class="no-sections">No sections selected</p>
+                                </div>
+                            </div>
+
+                            <div class="review-section" id="investigationReviewSection" style="display: none;">
+                                <h4><i class="material-icons">security</i> Investigation Details</h4>
+                                <div class="review-grid">
+                                    <div class="review-item">
+                                        <strong>Investigating Officer:</strong> <span id="reviewInvestigatingOfficer">Not provided</span>
+                                    </div>
+                                    <div class="review-item full-width">
+                                        <strong>Additional Comments:</strong> 
+                                        <div id="reviewAdditionalComments" class="review-text">No additional comments</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-actions">
+                                <button class="step-btn outline" id="prevStep4">Back</button>
+                                <button class="step-btn" id="submitFIR">Submit FIR</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Completion Step -->
+                        <div class="form-step" id="formStep5">
+                            <div class="completion-step">
+                                <i class="material-icons">check_circle</i>
+                                <h3>FIR Successfully Drafted!</h3>
+                                <p>Your FIR has been submitted to the system. You can view or print it from the dashboard.</p>
+                                <div id="downloadSection" class="download-section" style="display: none;">
+                                    <p>FIR Number: <strong id="firNumberDisplay"></strong></p>
+                                    <button class="download-btn" onclick="downloadFIR()">
+                                        <i class="material-icons">download</i> Download FIR PDF
+                                    </button>
+                                </div>
+                                <button class="step-btn" id="resetForm">Draft Another FIR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Case Management -->
+                <div class="tab-content case-management-content" id="case-management-tab">
+                    <div class="tab-container">
+                        <div class="tab-header">
+                            <h2><i class="material-icons">pending_actions</i> Case Management</h2>
+                            <div class="tab-controls">
+                                <button class="tab-filter active" data-filter="pending">Pending Cases</button>
+                                <button class="tab-filter" data-filter="updates">Recent Updates</button>
+                                <button class="tab-filter" data-filter="all">All Cases</button>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content-area">
+                            <div id="casesLoading" class="loading-state">
+                                <i class="material-icons">refresh</i>
+                                <p>Loading cases...</p>
+                            </div>
+                            <div id="casesContent" class="cases-content" style="display: none;">
+                                <!-- Cases will be loaded here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Crime Analytics -->
+                <div class="tab-content crime-analytics-content" id="crime-analytics-tab">
+                    <div class="tab-container">
+                        <div class="tab-header">
+                            <h2><i class="material-icons">analytics</i> Crime Analytics</h2>
+                            <div class="analytics-controls">
+                                <select id="timeRange">
+                                    <option value="week">Last Week</option>
+                                    <option value="month" selected>Last Month</option>
+                                    <option value="year">Last Year</option>
+                                </select>
+                                <button class="btn-generate" onclick="generateAnalytics()">Generate Report</button>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-content">
+                            <div id="analyticsLoading" class="loading-state">
+                                <i class="material-icons">analytics</i>
+                                <p>Preparing analytics...</p>
+                            </div>
+                            <div id="analyticsResults" style="display: none;">
+                                <!-- Analytics results will be shown here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Criminal Matching -->
+                <div class="tab-content criminal-matching-content" id="criminal-matching-tab">
+                    <div class="tab-container">
+                        <div class="tab-header">
+                            <h2><i class="material-icons">fingerprint</i> Criminal Pattern Matching</h2>
+                        </div>
+                        
+                        <div class="matching-interface">
+                            <div class="search-section">
+                                <h3>Match Case Patterns</h3>
+                                <textarea id="caseDescription" placeholder="Describe the case incident, modus operandi, suspect details..." rows="4"></textarea>
+                                <button class="btn-match" onclick="findCriminalMatches()">
+                                    <i class="material-icons">search</i> Find Similar Patterns
+                                </button>
+                            </div>
+                            
+                            <div id="matchingResults" class="matching-results">
+                                <div class="info-state">
+                                    <i class="material-icons">fingerprint</i>
+                                    <p>Enter case details to find matching criminal patterns</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 5: Legal Resources -->
+                <div class="tab-content legal-resources-content" id="legal-resources-tab">
+                    <div class="tab-container">
+                        <div class="tab-header">
+                            <h2><i class="material-icons">gavel</i> Legal Resources</h2>
+                            <div class="search-box">
+                                <input type="text" id="legalSearch" placeholder="Search IPC sections...">
+                                <button onclick="searchLegalResources()"><i class="material-icons">search</i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="resources-content">
+                            <div class="resources-grid" id="legalResourcesGrid">
+                                <!-- Legal resources will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AI Legal Assistance System. Developed as part of Bachelor of Technology in Computer Engineering.</p>
+    </footer>
+
+    <!-- JavaScript Files - ALL INTEGRATED -->
+    <script src="js/script.js"></script>
+    <script src="js/fir-drafting.js"></script>
+    <script src="js/case-management.js"></script>
+    <script src="js/analytics-dashboard.js"></script>
+    <script src="js/criminal-search.js"></script>
+    
+    <!-- Main Dashboard Controller -->
+    <script src="js/police-dashboard.js"></script>
+</body>
+</html>

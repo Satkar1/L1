@@ -1,0 +1,372 @@
+/* Legal Resources Specific Styles */
+.resources-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+}
+
+.resource-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.resource-tab.active {
+    background: #1a56db;
+    color: white;
+    border-color: #1a56db;
+}
+
+.resource-tab:hover:not(.active) {
+    background: #f3f4f6;
+}
+
+.resource-section {
+    display: none;
+}
+
+.resource-section.active {
+    display: block;
+}
+
+.ipc-sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.ipc-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    transition: all 0.3s ease;
+    border-left: 4px solid #1a56db;
+}
+
+.ipc-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.ipc-header {
+    margin-bottom: 15px;
+}
+
+.ipc-header h4 {
+    margin: 0 0 5px 0;
+    color: #1a56db;
+    font-size: 1.2rem;
+}
+
+.section-title {
+    font-weight: 600;
+    color: #374151;
+}
+
+.ipc-description {
+    margin: 15px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.ipc-penalty {
+    margin: 15px 0;
+    padding: 10px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.ipc-actions {
+    margin-top: 15px;
+}
+
+.btn-copy {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    transition: background 0.3s ease;
+}
+
+.btn-copy:hover {
+    background: #1a56db;
+}
+
+.procedures-list {
+    display: grid;
+    gap: 20px;
+}
+
+.procedure-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    border-left: 4px solid #10b981;
+}
+
+.procedure-header h4 {
+    margin: 0 0 15px 0;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.procedure-steps ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.procedure-steps li {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.procedure-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.template-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-left: 4px solid #f59e0b;
+}
+
+.template-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.template-icon .material-icons {
+    font-size: 48px;
+    color: #f59e0b;
+    margin-bottom: 10px;
+}
+
+.template-content h4 {
+    margin: 10px 0 5px 0;
+    color: #374151;
+}
+
+.template-type {
+    color: #666;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.template-description {
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.template-actions {
+    margin-top: 15px;
+}
+
+.search-results {
+    padding: 20px 0;
+}
+
+.search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.search-header h3 {
+    margin: 0;
+    color: #374151;
+}
+
+.btn-clear-search {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn-clear-search:hover {
+    background: #dc2626;
+}
+
+.results-section {
+    margin: 30px 0;
+}
+
+.results-section h4 {
+    margin: 0 0 15px 0;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.no-results .material-icons {
+    font-size: 64px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.no-results h3 {
+    margin: 0 0 10px 0;
+    color: #374151;
+}
+
+/* Chart styles for analytics */
+.breakdown-chart {
+    margin-top: 20px;
+}
+
+.chart-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+    padding: 8px 0;
+}
+
+.crime-type {
+    min-width: 120px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.chart-bar {
+    flex: 1;
+    height: 20px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1a56db, #3b82f6);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.crime-count {
+    min-width: 80px;
+    text-align: right;
+    font-weight: 600;
+    color: #1a56db;
+    font-size: 14px;
+}
+
+/* Update item styles */
+.update-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin: 10px 0;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.update-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.update-icon .material-icons {
+    color: #1a56db;
+    font-size: 24px;
+}
+
+.update-content h4 {
+    margin: 0 0 5px 0;
+    color: #374151;
+}
+
+.update-content p {
+    margin: 0 0 5px 0;
+    color: #666;
+}
+
+.update-content small {
+    color: #999;
+    font-size: 12px;
+}
+
+/* Feature list for criminal matching */
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.feature-item .material-icons {
+    color: #1a56db;
+    font-size: 24px;
+}
+
+.feature-item span {
+    font-weight: 500;
+    color: #374151;
+}
